@@ -19,21 +19,29 @@ describe('Employee', () => {
         });
 
         it("should throw an error when a name isn't provided", () => {
-            const cb = () => new Employee(12345,"john.smith@company.com");
+            const id = 12345;
+            const email = "john.smith@company.com";
+            let name;
+            const cb = () => new Employee(name,id,email);
             const err = new Error('You must provide a name.');
 
             expect(cb).toThrow(err);
         });
 
         it("should throw an error when an ID isn't provided.", () => {
-            const cb = () => new Employee("John Smith","john.smith@company.com");
+            const name = "John Smith";
+            const email = "john.smith@company.com";
+            let id;
+            const cb = () => new Employee(name,id,email);
             const err = new Error('You must provide an ID.');
 
             expect(cb).toThrow(err);
         });
 
         it("should throw an error when an email isn't provided.", () => {
-            const cb = () => new Employee("John Smith",12345);
+            const name = "John Smith";
+            const id = 12345;
+            const cb = () => new Employee(name,id);
             const err = new Error('You must provide an email address.');
 
             expect(cb).toThrow(err);
