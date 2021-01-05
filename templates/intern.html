@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title id="employee-name"></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title" id="employee-name"></h1>
-      <h3 class="subtitle">Intern, <span id="employee-department"></span></h3>
-      <p>Email: <span id="employee-email"></span></p>
-      <p>School: <span id="employee-school"></span></p>
-      <p>Employee ID: <span id="employee-id"></span></p>
+<div class="card employee-card">
+    <div class="card-header">
+        <h2 class="card-title">{{ name }}</h2>
+        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>{{ role }}</h3>
     </div>
-  </section>
-  </body>
-</html>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: {{ id }}</li>
+            <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
+            <li class="list-group-item">School: {{ school }}</li>
+        </ul>
+    </div>
+</div>
