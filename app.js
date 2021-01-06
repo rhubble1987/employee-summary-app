@@ -181,7 +181,6 @@ const askEngineerQuestions = employee => {
     inquirer.prompt(engineerQuestion).then((ans) => {
         let engineer = new Engineer(employee.name,employee.id,employee.email,ans.employeeGithub);
         employees.push(engineer);
-        console.log(employees);
         inquirer.prompt(additionalEmployees).then((a) => {
             if (a.additionalEmployees) {
                 askEmployeeQuestions();
@@ -200,14 +199,13 @@ const askInternQuestions = employee => {
     inquirer.prompt(internQuestion).then((ans) => {
         let intern = new Intern(employee.name,employee.id,employee.email,ans.employeeSchool);
         employees.push(intern);
-        console.log(employees);
         inquirer.prompt(additionalEmployees).then((a) => {
             if (a.additionalEmployees) {
                 askEmployeeQuestions();
             } else {
                 fs.writeFile(outputPath,render(employees),(err) => {
                     if (err) throw err;
-                    console.log('Your html file has been successfully generated!');
+                    console.log('Your html file has been successfully generated! You can find it in the outputs folder.');
                 });
             }
         });
@@ -223,11 +221,9 @@ const askEmployeeQuestions = () => {
             let employee =  new Employee(answers.employeeName,answers.employeeId,answers.employeeEmail);
             inquirer.prompt(employeeRole).then((answer) => {
                 if (answer.employeeRoleSelect === "Engineer") {
-                    console.log(answer);
                     askEngineerQuestions(employee);
                 }
                 if (answer.employeeRoleSelect === "Intern") {
-                    console.log(answer);
                     askInternQuestions(employee);
                 }
             
