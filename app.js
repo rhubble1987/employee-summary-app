@@ -33,7 +33,7 @@ const managerQuestions =
     },
     {   
         //Then manager employee ID 
-        type: 'number',
+        type: 'input',
         name: 'managerEmployeeId',
         message: 'Please enter your employee ID: ',
         validate: function (answer) {
