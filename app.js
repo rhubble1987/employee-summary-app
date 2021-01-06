@@ -33,12 +33,12 @@ const managerQuestions =
     },
     {   
         //Then manager employee ID 
-        type: 'input',
+        type: 'number',
         name: 'managerEmployeeId',
         message: 'Please enter your employee ID: ',
         validate: function (answer) {
-            if (answer === false || typeof answer !== 'number') {
-                return 'You must enter a number.';
+            if (answer == false) {
+                return 'You must enter a valid employee ID.';
             } else {
                 return true;
             } 
@@ -104,7 +104,7 @@ const employeeQuestions =
         name: 'employeeId',
         message: "Please enter employee ID:  ",
         validate: function (answer) {
-            if (answer === false || typeof answer !== 'number') {
+            if (answer === false) {
                 return "You must enter a valid employee ID: ";
             } else {
                 return true;
